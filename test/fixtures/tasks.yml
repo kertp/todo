@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  content: MyText
+  deadline: 2013-04-29 16:57:40
+  closed: false
+
+two:
+  name: MyString
+  content: MyText
+  deadline: 2013-04-29 16:57:40
+  closed: false
