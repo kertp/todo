@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  belongs_to :post
   # GET /tasks
   # GET /tasks.json
   def index
