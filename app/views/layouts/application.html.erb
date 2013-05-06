@@ -15,9 +15,9 @@
 	    <div class="container">  
 	    <ul class="nav">  
 		  <li class="active">  
-		    <a class="brand" href="#">TODO</a>  
+		    <a class="brand" href="/">TODO</a>  
 		  </li>  
-		  <li><a href="#">Home</a></li>   
+		  <li><%= link_to "Home", '/' %></li>
 		</ul>
 		<ul class="nav">  
 		  <li class="dropdown">  
@@ -28,8 +28,8 @@
 		          <b class="caret"></b>  
 		    </a>  
 		    <ul class="dropdown-menu">  
-	  	     <li><a href="#">Create a new project</a></li>  
-			  <li><a href="#">My projects</a></li>  
+	  	     <li><%= link_to "Create a new project", '/projects/new' %></li>  
+			  <li><%= link_to "My projects", '/projects' %></li>  
 		    </ul>  
 		  </li>  
 		</ul> 
