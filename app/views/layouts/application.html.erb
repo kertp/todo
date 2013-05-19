@@ -35,13 +35,16 @@
 		</ul> 
 		<ul class="nav">  
 		  <li><a href="#">Account</a></li>
-		  <li><a href="#">Log out</a></li>   
+		  <li><%= link_to "Log out!", '/log_out' %></li>   
 		</ul>
 	    </div>  
 	  </div>  
 	</header>  
     <div class="container" id="wrapper">
-      <%= yield %>
+    	<%= session[:id] %>
+	    <% if session[:user_id] == nil %>
+	      <%= yield %>
+	    <% end %>
     </div>
   </body>
 </html>
