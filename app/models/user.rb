@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :password, :password_confirmation
 
+  has_many :comments, :dependent => :destroy
+
   before_save :encrypt_password
 
   validates :password,  :presence => true, :confirmation => true

@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
-  # GET /tasks
-  # GET /tasks.json
+  # # GET /tasks
+  # # GET /tasks.json
   def index
-    @tasks = Task.all
+    @project = Project.find(params[:project_id])
+    @tasks = @project.tasks
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,25 +11,24 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
+  # # GET /tasks/1
+  # # GET /tasks/1.json
   def show
-    @task = Task.find(params[:id])
-
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find params[:task_id]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }
     end
   end
 
-  # GET /tasks/new
+  # # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @task = Task.new
-
+    @project = Project.find(params[:project_id])
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @task }
+      format.json { render json: @project }
     end
   end
 
@@ -40,17 +40,19 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render json: @task, status: :created, location: @task }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    @project = Project.find(params[:project_id])
+    # @comment = @post.comments.create(params[:comment])
+    @task = @project.tasks.create(params[:task])
+    redirect_to project_path(@project)
+    # respond_to do |format|
+    #   if @task.save
+    #     format.html { redirect_to @task, notice: 'Task was successfully created.' }
+    #     format.json { render json: @task, status: :created, location: @task }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @task.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PUT /tasks/1

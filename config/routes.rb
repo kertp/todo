@@ -1,7 +1,10 @@
 Todo::Application.routes.draw do
   
   resources :projects do
-    resources :tasks
+    resources :tasks do
+      resources :comments
+    end
+    resources :comments
   end
 
   root :to => "projects#index"

@@ -10,7 +10,7 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :description
   has_many :tasks, :dependent => :destroy
   has_many :ownerships, :dependent => :destroy
   has_many :users, :through =>:ownerships
