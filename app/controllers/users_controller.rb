@@ -12,12 +12,7 @@ def create
   end
 end
 
-  def self.authenticate params
-    user = find_by_email(params[:email])
-    if user && user.password_hash == BCrypt::Engine.hash_secret(params[:password], user.password_salt)
-      user
-    else
-      nil
-    end      
+  def edit
+    @user = User.find(params[:id])
   end
 end
